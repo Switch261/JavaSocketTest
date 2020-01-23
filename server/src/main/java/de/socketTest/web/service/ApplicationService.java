@@ -24,7 +24,7 @@ public class ApplicationService {
 
     // Find one Client by Name
     public Client getClient(String name) {
-        return clientRepository.findOneByName(name).get();
+        return clientRepository.findOneByNameIgnoreCase(name).get();
     }
 
     // Get all Clients

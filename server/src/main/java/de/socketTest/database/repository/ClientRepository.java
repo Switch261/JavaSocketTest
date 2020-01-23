@@ -8,5 +8,5 @@ import java.util.Optional;
 
 public interface ClientRepository extends CrudRepository<Client, String> {
     List<Client> findAll();
-    Optional<Client> findOneByName(String name);
+    Optional<Client> findOneByNameIgnoreCase(String name);
 }
