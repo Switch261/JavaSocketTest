@@ -3,6 +3,7 @@ package de.socketTest.database.model;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +14,7 @@ public class Client {
     @Id
     String name;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     List<String> messages = new ArrayList<>();
 
     public Client() {

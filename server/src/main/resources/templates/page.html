@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Messages</title>
-
 </head>
 <body>
     <div th:each="client: ${clients}">
         <h1 th:text="${client.getName()}">Client</h1>
+        <a th:if="${connections.contains(client.getName())}" th:href="@{/startCommunication/} + ${client.getName()}">start Communication</a>
         <h2>Messages</h2>
         <div th:if="${client.getMessages().isEmpty()}">
             Dieser Client hat keine Nachrichten geschickt
@@ -21,6 +21,10 @@
     <br>
     <form action="/" method="post">
         <button type="submit">Reset All Messages</button>
+    </form>
+    <br>
+    <form action="/startAllCommunications/" method="post">
+        <button type="submit">start All Communications</button>
     </form>
 </body>
 </html>

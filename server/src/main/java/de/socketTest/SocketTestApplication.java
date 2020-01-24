@@ -1,8 +1,12 @@
 package de.socketTest;
 
+import de.socketTest.database.repository.ClientRepository;
+import de.socketTest.socket.SocketService;
 import de.socketTest.socket.SocketThread;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.context.ConfigurableApplicationContext;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -16,9 +20,10 @@ public class SocketTestApplication {
 	static int socketPort = 8082;
 
 	public static void main(String[] args) {
-		SpringApplication.run(SocketTestApplication.class, args);
+		ConfigurableApplicationContext ctx = new
+				SpringApplicationBuilder(SocketTestApplication.class).run();
 		printIP();
-		runSocketServer();
+		runSocketServer(ctx);
 	}
 
 	public static void printIP() {
@@ -35,7 +40,9 @@ public class SocketTestApplication {
 		System.out.println("//////////////////////////");
 	}
 
-	public static void runSocketServer() {
+	public static void runSocketServer(ConfigurableApplicationContext ctx) {
+
+
 		ServerSocket serverSocket = null;
 		Socket clientSocket = null;
 
@@ -52,7 +59,7 @@ public class SocketTestApplication {
 				System.out.println("I/O error: " + e);
 			}
 			// new thread for a client
-			new SocketThread(clientSocket).start();
+			new SocketThread(clientSocket, ctx.getBean(SocketService.class)).start();
 		}
 	}
 
