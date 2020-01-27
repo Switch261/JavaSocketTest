@@ -24,7 +24,8 @@ To Establish a connection please follow the steps below: <br>
 <br>
 <br>
 <i>Note that the SimpleClient.java Client already implements those steps</i>
----
+<br>
+
 ---
 ## Client
 <i>Note: This client is for command line only and has no UI</i> 
