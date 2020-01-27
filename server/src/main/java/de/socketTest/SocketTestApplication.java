@@ -40,9 +40,8 @@ public class SocketTestApplication {
 		System.out.println("//////////////////////////");
 	}
 
+	// waits for incoming connections and starts new SocketThread for each
 	public static void runSocketServer(ConfigurableApplicationContext ctx) {
-
-
 		ServerSocket serverSocket = null;
 		Socket clientSocket = null;
 

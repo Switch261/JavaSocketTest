@@ -38,3 +38,7 @@ To run the client type <i>java SimpleClient serverAddress clientName</i> and rep
 <br>
 After starting the Client, the client will try to connect to the Server. If the Client was successful a success message will appear in the console. <br>
 Know the client will wait for the Server to start the chat. After the start of the chat by the Server the client is able to send messages to the Server.
+
+## Source
+<a href=https://www.baeldung.com/a-guide-to-java-sockets>Baeldung: Guide to Java Sockets<a> <br>
+<a href=https://stackoverflow.com/questions/10131377/socket-programming-multiple-client-to-one-server>Stackoverflow: Socket Programming, multiple clients to one Server</a>

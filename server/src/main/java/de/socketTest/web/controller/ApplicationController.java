@@ -16,6 +16,7 @@ public class ApplicationController {
 
     @GetMapping("/")
     public String getMessages(Model model) {
+        // shows all messages for every client
         model.addAttribute("clients", service.getAllClients());
         model.addAttribute("connections", service.getActiveConnections());
         return "page";
@@ -23,6 +24,7 @@ public class ApplicationController {
 
     @PostMapping("/")
     public String clearMessages(Model model) {
+        // deletes all messages fro every client
         service.clearAllMessages();
         model.addAttribute("clients", service.getAllClients());
         model.addAttribute("connections", service.getActiveConnections());
@@ -31,12 +33,14 @@ public class ApplicationController {
 
     @GetMapping("/startCommunication/{client}")
     public String startCommunication(@PathVariable String client) {
+        // start communication with the client
         service.startCommunication(client);
         return "redirect:/";
     }
 
     @PostMapping("/startAllCommunications/")
     public String startCommunication() {
+        // starts communication with all clients
         service.startAllCommunications();
         return "redirect:/";
     }

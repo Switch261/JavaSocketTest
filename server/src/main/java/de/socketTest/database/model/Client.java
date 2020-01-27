@@ -7,7 +7,9 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import java.util.ArrayList;
 import java.util.List;
-
+/*
+// Simple Client with a unique name and a List of send messages
+*/
 @Entity
 public class Client {
 
@@ -33,10 +35,12 @@ public class Client {
         this.messages.add(message);
     }
 
+    // needed for thymeleaf
     public String getName() {
         return this.name;
     }
 
+    // needed for thymeleaf
     public List<String> getMessages() {
         return messages;
     }

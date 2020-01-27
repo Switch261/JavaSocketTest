@@ -10,11 +10,11 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecConfig extends WebSecurityConfigurerAdapter {
 
     @Override
-    //@SuppressFBWarnings(value = "SPRING_CSRF_PROTECTION_DISABLED", justification = "csrf disabled to avoid 405 error in POST Requests")
     protected void configure(HttpSecurity http) throws Exception {
+        // secures all pages except from Login for authenticated users only
         http.authorizeRequests().anyRequest().authenticated()
                 .and().formLogin().permitAll();
-
+        // allows POST Requests
         http.csrf().disable();
         http.headers().frameOptions().sameOrigin();
     }
